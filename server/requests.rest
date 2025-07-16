@@ -1,0 +1,17 @@
+
+// AccessToken --eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NmY0ZjliMzUyZWMyY2IyM2FiNzVkMiIsImlhdCI6MTc1MjEyNTMzOX0.Su876Rdu2hkpRrUgm5sXIsHslKYlZG52rgVFKrhrouc
+//POST http://localhost:3000/signup
+//Content-Type:application/json
+
+//{
+//    "fullname":"john",
+ //   "email":"john@gmail.com",
+ //   "password":"John@123"
+//}
+
+POST   http://localhost:3000/search-blogs
+Content-Type: application/json
+
+{
+    "tag":"books"
+}
