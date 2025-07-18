@@ -137,6 +137,7 @@ const PublishForm = ()=>
                     
                     <textarea maxLength={characterLimit}
                     defaultValue={des}
+                    
                     className="h-400 resize-none leading-7 input-box pl-4"
                     onChange={handleDescriptionChange}
                     onKeyDown={handleTitleKeyDown}>
