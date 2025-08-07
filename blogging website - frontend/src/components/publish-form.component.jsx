@@ -16,7 +16,7 @@ const PublishForm = ()=>
     let navigate=useNavigate();
     let tagLimit=4;
 
-    let { blog , blog : {title , tags ,des,/*content*/ },setEditorState,setBlog} = useContext(EditorContext);
+    let { blog , blog : {title , tags ,des,content },setEditorState,setBlog} = useContext(EditorContext);
     const handleCloseEvent = ()=>{
         setEditorState("editor")
     }

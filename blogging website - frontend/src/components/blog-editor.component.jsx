@@ -137,7 +137,7 @@ const BlogEditor = () => {
                 <Link to="/" className="flex-none w-10">
                     <img src={logo} />
                 </Link>
-                <p className="max-md:hidden text-black line-clamp-1 w-full">
+                <p className="max-md:hidden text-xl text-gelasio text-black line-clamp-1 w-full">
                     {title.length ? title : "New Blog"}
                 </p>
                 <div className="flex gap-4 ml-auto">

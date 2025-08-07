@@ -224,8 +224,8 @@ server.get('/trending-blogs',(req,res)=>{
 
 server.post("/search-blogs" ,(req,res)=>{
     let { tag }=req.body;
-
-    let findQuery =  { tags : tag ,draft:false};
+   
+    let findQuery =  { tags : { $regex: new RegExp(`^${tag}$`, 'i') },draft:false};
     let maxLimit =5;
     Blog.find(findQuery)
     .populate("author", "personal_info.profile_img personal_info.username personal_info.fullname -_id")
@@ -233,10 +233,41 @@ server.post("/search-blogs" ,(req,res)=>{
     .select("blog_id title des activity tags publishedAt -_id")
     .limit(maxLimit)
     .then(blogs=>{
+        
+
         return res.status(200).json({blogs})
     })
     .catch(err=>{
         return res.status(500).json({error : err.message})
+    })
+})
+
+
+server.post("/search-users",(req,res)=>{
+    let {query} = req.body;
+    User.find({"personal_info.username": new  RegExp(query,'i') })
+    .limit(50)
+    .select("personal_info.fullname personal_info.username personal_info.profile_img -_id")
+    .then(users=>{
+        return res.status(200).json({users});
+        console.log(users);
+    })
+     .catch(err=>{
+        return res.status(500).json({error : err.message})
+    })
+})
+
+server.post("/get-profile",(req,res)=>{
+
+    let {username}= req.body;
+    User.findOne({ "personal_info.username": username })
+    .select("-personal_info.password -google_auth -updatedAt -blogs")
+    .then(user=>{
+        return res.status(200).json(user)
+    })
+    .catch(err=>{
+        console.log(err);
+        return res.status(500).json({error:err.message});
     })
 })
 server.post("/create-blog",verifyJWT,(req,res)=>{
