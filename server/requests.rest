@@ -9,9 +9,18 @@
  //   "password":"John@123"
 //}
 
-POST   http://localhost:3000/get-profile
+# POST   https://leafy-zbvi.vercel.app/signin
+# Content-Type: application/json
+
+# {
+#     "fullname":"Saurabh",
+#     "email":"Saurabh@gmail.com",
+#     "password":"Saurabh@123"
+# }
+POST   https://leafy-zbvi.vercel.app/signin
 Content-Type: application/json
 
 {
-    "username":"harshit"
+    "email":"Saurabh@gmail.com",
+    "password":"Saurabh@123"
 }
