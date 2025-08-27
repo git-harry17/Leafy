@@ -29,9 +29,9 @@ let PORT = 3000;
 server.use(express.json());
 //server.use(cors());
 server.use(cors({
-    origin: "https://leafy-two-sigma.vercel.app/", // Replace with your frontend URL
+    origin: "*",//"https://leafy-two-sigma.vercel.app/", // Replace with your frontend URL
     methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true
+    credentials: false
 }));
 mongoose.connect(process.env.DB_LOCATION,{
     autoIndex: true
